@@ -86,9 +86,45 @@ round(apply(mod[[5]]$alphas[2,,keep,], 3, mean), digits=3)
 ```
 ![Alt text](images/OutcomeOmega50000.png)
 
+We see that when omega=1 all of the covariates have very low posterior inclusion probabilities. When omega=50000, however, we highly prioritize covariates that are also associated with treatment, and therefore the posterior inclusion probability for the first covariate is essentially 1. We can see what the posterior inclusion probability of this first covariate is for each value of omega
 
+```
+## Posterior inclusion probability of the first covariate across omega values
+PIPs = round(unlist(lapply(mod, function(x) return(mean(x$alphas[2,,keep,1])))), digits=3)
 
-![Alt text](images/OutcomeVaryingOmega.png)
+## Now let's plot these values
+plot(1:5, PIPs, pch=15, cex=1.5, ylim=range(PIPs),
+     ylab = "", xlab = expression(omega), axes=FALSE, 
+     main = "Posterior inclusion probability for X1", 
+     type='l', lwd=4)
+axis(1, at=1:5, labels=omegaVec)
+axis(2)
+abline(h = 1, lty=2)
+```
+
+![Alt text](images/PIPs.png)
+
+Of course, posterior inclusion probabilities are not the ultimate goal of an analysis such as this. We need them high for the confounders of the effect of T on Y, but ultimately of most interest to us is the actual magnitude of the treatment effect estimates. Let's extract these, and their corresponding 95% credible intervals from the model
+
+```
+## Now let's look at estimates and 95% credible intervals for the effect of interest
+estimates = round(unlist(lapply(mod, function(x) return(mean(x$coefs[2,,keep,2])))), digits=3)
+CIlower = round(unlist(lapply(mod, function(x) return(quantile(x$coefs[2,,keep,2], .025)))), digits=3)
+CIupper = round(unlist(lapply(mod, function(x) return(quantile(x$coefs[2,,keep,2], .975)))), digits=3)
+```
+
+And then plot the resulting estimates and credible intervals
+
+```
+## Now let's plot the effect estimates
+plot(1:5, estimates, pch=15, cex=1.5, ylim=range(c(CIlower, CIupper)),
+     ylab = "", xlab = expression(omega), axes=FALSE, 
+     main = "Estimates and 95% credible intervals")
+axis(1, at=1:5, labels=omegaVec)
+axis(2)
+segments(x0=1:5, x1=1:5, y0=CIlower, y1=CIupper, lwd=3)
+abline(h = 1, lty=2)
+```
 
 ![Alt text](images/EffectEstimates.png)
 
