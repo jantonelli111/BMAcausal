@@ -16,7 +16,7 @@ Text
 
 ```
 
-![Alt text](images/ggPlotBMA.pdf)
+![Alt text](images/TreatmentOmega1.png)
 
 ### Simulated example
 
