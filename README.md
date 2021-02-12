@@ -144,10 +144,10 @@ dim(Y)
 ```
 ![Alt text](images/NHANESpreview2.png)
 
-Note this should read in three distinct objects: X, Tr, and Y. These correspond to the matrix of covariates, matrix of treatments, and matrix of outcomes, respectively. We have 82 potential confounders, 10 treatments, and 3 outcomes we can examine. For this illustration we will simply focus on the effect of the fourth treatment variable on the second outcome
+Note this should read in three distinct objects: X, Tr, and Y. These correspond to the matrix of covariates, matrix of treatments, and matrix of outcomes, respectively. We have 82 potential confounders, 10 treatments, and 3 outcomes we can examine. For this illustration we will simply focus on the effect of the seventh treatment variable on the second outcome
 
 ```
-t = Tr[,4]
+t = Tr[,7]
 y = Y[,2]
 ```
 
