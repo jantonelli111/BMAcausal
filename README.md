@@ -17,6 +17,7 @@ Text
 ```
 
 ![Alt text](images/TreatmentOmega1)
+![alt text](https://github.com/jantonelli111/BMAcausal/images/TreatmentOmega1.png)
 
 ### Simulated example
 
