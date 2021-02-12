@@ -16,7 +16,7 @@ Text
 
 ```
 
-![Alt text](images/TreatmentOmega1.png)
+![Alt text](images/TreatmentOmega1)
 
 ### Simulated example
 
