@@ -126,7 +126,7 @@ segments(x0=1:5, x1=1:5, y0=CIlower, y1=CIupper, lwd=3)
 abline(h = 1, lty=2)
 ```
 
-![Alt text](images/EffectEstimatesOld.png)
+![Alt text](images/EffectEstimatesNew.png)
 
 
 ### Analysis of NHANES data
