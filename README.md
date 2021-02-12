@@ -16,7 +16,7 @@ Text
 
 ```
 
-![Alt text](images/Plot1.png)
+![Alt text](images/ggPlotBMA.pdf)
 
 ### Simulated example
 
