@@ -2,7 +2,7 @@
 
 This brief vignette is intended to supplement the book chapter titled "Bayesian Model Averaging in Causal Inference" by Joseph Antonelli and Francesca Dominici.  This chapter is a part of a larger textbook on Bayesian model averaging titled "Handbook of Bayesian Variable Selection". Specifically, this repository contains code and data to replicate all of the analyses performed in this chapter. This tutorial will walk users through each step of the code and discuss any subjective decisions that are made in the analysis. We will first walk through an analysis of simulated data and then discuss an analysis of NHANES data, which can be found in the NHANESdata folder of this repository. 
 
-### Loading in the required packages
+## Loading in the required packages
 
 The analyses considered in these examples are focused on the Bayesian adjustment for confounding (BAC) prior distribution, which has been implemented in an R package called BAC that can be downloaded using the following lines of code:
 
@@ -12,7 +12,7 @@ install_github(repo = "gpapadog/BAC")
 library(BAC)
 ```
 
-### Simulated example
+## Simulated example
 
 Before moving on to the NHANES analysis seen in the chapter, let's illustrate the code on a simple, simulated example. First, let's generate data where x is our covariate matrix, t is our treatment variable, and y is our outcome to be analyzed. 
 
@@ -129,7 +129,7 @@ abline(h = 1, lty=2)
 ![Alt text](images/EffectEstimatesNew.png)
 
 
-### Analysis of NHANES data
+## Analysis of NHANES data
 
 Now let's look at the NHANES data that is analyzed in the book chapter. Again we will focus on the BAC prior distribution and therefore no additional R packages need to be loaded. Let's first read in the data, which can be found in this Github repository under the NHANESdata folder. 
 
