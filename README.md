@@ -14,7 +14,7 @@ library(BAC)
 
 Text
 
-![Alt text](images/TreatmentOmega1?raw=true)
+![Alt text](images/TreatmentOmega1.png)
 
 ### Simulated example
 
