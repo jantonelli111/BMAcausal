@@ -139,6 +139,7 @@ load("NHANES.Rdata")
 dim(C)
 dim(X)
 dim(Y)
+
 ```
 
 ![Alt text](images/NHANESpreview.png)
