@@ -14,10 +14,7 @@ library(BAC)
 
 Text
 
-```
-
 ![Alt text](images/TreatmentOmega1)
-![alt text](https://github.com/jantonelli111/BMAcausal/blob/main/images/TreatmentOmega1.png?raw=true)
 
 ### Simulated example
 
