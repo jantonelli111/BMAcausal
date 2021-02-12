@@ -12,7 +12,7 @@ install_github(repo = "gpapadog/BAC")
 library(BAC)
 ```
 
-Text
+These are the posterior inclusion probabilities for each covariate in the treatment model for $\omega = 1$
 
 ![Alt text](images/TreatmentOmega1.png)
 
