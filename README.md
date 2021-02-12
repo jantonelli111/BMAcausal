@@ -173,6 +173,9 @@ for (oo in 1 : length(omegaVec)) {
 And now we can plot the resulting posterior means and 95% credible intervals
 
 ```
+## Only keep every 4th MCMC scan and burn the first 500
+keep = seq(500, 2000, by=4)
+
 ## Now let's look at estimates and 95% credible intervals for the effect of interest
 estimates = round(unlist(lapply(mod, function(x) return(mean(x$coefs[2,,keep,2])))), digits=3)
 CIlower = round(unlist(lapply(mod, function(x) return(quantile(x$coefs[2,,keep,2], .025)))), digits=3)
