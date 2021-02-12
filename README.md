@@ -6,6 +6,18 @@ This brief vignette is intended to supplement the book chapter titled "Bayesian 
 
 The analyses considered in these examples are focused on the Bayesian adjustment for confounding (BAC) prior distribution, which has been implemented in a package called BAC that can be downloaded in R using the following lines of code:
 
+```
+library(devtools)
+install_github(repo = "gpapadog/BAC")
+library(BAC)
+```
+
+Text
+
+```
+
+![Alt text](images/Plot1.png)
+
 ### Simulated example
 
 ### Analysis of NHANES data
