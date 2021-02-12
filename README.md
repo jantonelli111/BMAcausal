@@ -134,12 +134,31 @@ abline(h = 1, lty=2)
 Now let's look at the NHANES data that is analyzed in the book chapter. Again we will focus on the BAC prior distribution and therefore no additional R packages need to be loaded. Let's first read in the data, which can be found in this Github repository under the NHANESdata folder. 
 
 ```
+rm(list=ls())
+
 load("NHANES.Rdata")
 
-dim(C)
-dim(X)
+dim(x)
+dim(Tr)
 dim(Y)
+```
+![Alt text](images/NHANESpreview2.png)
+
+Note this should read in three distinct objects: X, Tr, and Y. These correspond to the matrix of covariates, matrix of treatments, and matrix of outcomes, respectively. We have 82 potential confounders, 10 treatments, and 3 outcomes we can examine. For this illustration we will simply focus on the effect of the fourth treatment variable on the second outcome
 
 ```
+t = Tr[,4]
+y = Y[,2]
+```
 
-![Alt text](images/NHANESpreview.png)
+We will utilize the same five values of omega that were considered in the simulation example above: 1, 25, 100, 1000, 50000. These cover a wide range of prior distributions from the standard Bayesian model averaging prior that does not use the treatment information, to a highly informative prior distribution that essentially forces covariates into the outcome model if they're associated with the treatment. 
+
+```
+## Range of omega values to consider
+omegaVec = c(1, 25, 100, 1000, 50000)
+```
+
+Now, we can apply the BAC prior with each value of omega to the data. Note this will take slightly longer to run than in the simulated example because there are 82 covariates instead of 30. Additionally, we are only running 2000 MCMC scans so that you can run these models quickly, but typically we recommend ensuring that your MCMC has converged by assessing trace plots and other convergence criteria such as the potential scale reduction factor. 
+
+
+
