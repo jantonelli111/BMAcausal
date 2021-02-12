@@ -130,3 +130,15 @@ abline(h = 1, lty=2)
 
 
 ### Analysis of NHANES data
+
+Now let's look at the NHANES data that is analyzed in the book chapter. Again we will focus on the BAC prior distribution and therefore no additional R packages need to be loaded. Let's first read in the data, which can be found in this Github repository under the NHANESdata folder. 
+
+```
+load("NHANES.Rdata")
+
+dim(C)
+dim(X)
+dim(Y)
+```
+
+![Alt text](images/NHANESpreview.png)
