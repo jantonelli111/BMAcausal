@@ -54,18 +54,39 @@ for (oo in 1 : length(omegaVec)) {
 }
 ```
 
-These are the posterior inclusion probabilities for each covariate in the treatment model for omega=1
+Of most interest to us are the outcome model posterior inclusion probabilities, but let's first look at the posterior inclusion probabilities from the treatment model. First for omega=1:
 
+```
+## Treatment model posterior inclusion probability with omega=1
+round(apply(mod[[1]]$alphas[1,,keep,], 3, mean), digits=3)
+```
 ![Alt text](images/TreatmentOmega1.png)
 
+and now for omega=50000
 
-These are the posterior inclusion probabilities for each covariate in the treatment model for omega=50000
-
+```
+## Treatment model posterior inclusion probability with omega=50000
+round(apply(mod[[5]]$alphas[1,,keep,], 3, mean), digits=3)
+```
 ![Alt text](images/TreatmentOmega50000.png)
 
+We see that the posterior inclusion probabilities are correctly low for all covariates except the first one, which is included in the models 100% of the time under either omega value. Now let's look at the posterior inclusion probabilities in the outcome model for omega = 1
+
+```
+## Outcome model posterior inclusion probability with omega=1
+round(apply(mod[[1]]$alphas[2,,keep,], 3, mean), digits=3)
+```
 ![Alt text](images/OutcomeOmega1.png)
 
+and now for omega=50000
+
+```
+## Outcome model posterior inclusion probability with omega=50000
+round(apply(mod[[5]]$alphas[2,,keep,], 3, mean), digits=3)
+```
 ![Alt text](images/OutcomeOmega50000.png)
+
+
 
 ![Alt text](images/OutcomeVaryingOmega.png)
 
