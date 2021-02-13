@@ -158,7 +158,7 @@ We will utilize the same five values of omega that were considered in the simula
 omegaVec = c(1, 25, 100, 1000, 50000)
 ```
 
-Now, we can apply the BAC prior with each value of omega to the data. Note this will take slightly longer to run than in the simulated example because there are 82 covariates instead of 30. Additionally, we are only running 2000 MCMC scans so that you can run these models quickly, but typically we recommend ensuring that your MCMC has converged by assessing trace plots and other convergence criteria such as the potential scale reduction factor. 
+Now, we can apply the BAC prior with each value of omega to the data. Note this will take slightly longer to run than in the simulated example because there are 82 covariates instead of 30. Additionally, we are only running 5000 MCMC scans so that you can run these models quickly, but typically we recommend ensuring that your MCMC has converged by assessing trace plots and other convergence criteria such as the potential scale reduction factor. 
 
 ```
 ## Store the BAC models as a list
@@ -166,15 +166,15 @@ mod = list()
 
 ## Run BAC for each value of omega
 for (oo in 1 : length(omegaVec)) {
-  mod[[oo]] = BAC(X = t, Y = y, D = x, Nsims = 2000, chains = 2, omega=omegaVec[oo])
+  mod[[oo]] = BAC(X = t, Y = y, D = x, Nsims = 5000, chains = 2, omega=omegaVec[oo])
 }
 ```
 
 And now we can plot the resulting posterior means and 95% credible intervals
 
 ```
-## Only keep every 4th MCMC scan and burn the first 500
-keep = seq(500, 2000, by=4)
+## Only keep every 3rd MCMC scan and burn the first 2000
+keep = seq(2000, 5000, by=3)
 
 ## Now let's look at estimates and 95% credible intervals for the effect of interest
 estimates = round(unlist(lapply(mod, function(x) return(mean(x$coefs[2,,keep,2])))), digits=3)
@@ -191,3 +191,4 @@ segments(x0=1:5, x1=1:5, y0=CIlower, y1=CIupper, lwd=3)
 abline(h = 1, lty=2)
 ```
 
+![Alt text](images/EffectEstimatesNHANES.png)
